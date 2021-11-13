@@ -1,0 +1,141 @@
+ :root {
+        /* Base font size */
+        font-size: 10px;   
+        /* Set neon color */
+        --neon-text-color: #f40;
+        --neon-border-color: #08f;
+      }
+    body{
+        background-color: #000;
+        overflow: hidden;
+        
+    }
+
+    
+    #line{
+        stroke-dasharray: 1432.431640625;
+        stroke-dashoffset: 1432.431640625;
+        animation:draw 4s 5s ease forwards;
+    }
+    svg{
+        transform: scale(1.1);
+        height: 100vh;
+        width: 100vw
+    }
+    @keyframes draw{
+        to{
+            stroke-dashoffset: 0;
+        }
+    }
+    
+    #circle{
+        position:absolute;
+        top: 40%;
+        left: 7vw;
+        width:400px;
+        height: 400px;
+        transform: translateY(-50%);
+        border-radius:50%;
+        box-shadow:
+            0 0 .5rem #fff,
+            inset 0 0 .5rem #fff,
+            0 0 2rem var(--neon-border-color),
+            inset 0 0 2rem var(--neon-border-color),
+            0 0 4rem var(--neon-border-color),
+            inset 0 0 4rem var(--neon-border-color);     
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 2.5rem;
+        opacity: 0;
+        animation:reveal 1.5s 7s ease-in-out forwards;
+        border: 0.4rem solid #fff;
+    }
+    
+    @keyframes reveal{
+        to{
+            opacity: 1;
+            top: 50%;
+        }
+    }
+
+      
+    @import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
+
+    h1 {
+    font-size: 8rem;
+    font-weight: 200;
+    font-family: 'Exo 2', sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    animation: flicker 1.5s infinite alternate;     
+    }
+
+
+
+
+    @keyframes flicker {
+        
+        0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        
+            text-shadow:
+                -0.2rem -0.2rem 1rem #fff,
+                0.2rem 0.2rem 1rem #fff,
+                0 0 2rem var(--neon-text-color),
+                0 0 4rem var(--neon-text-color),
+                0 0 6rem var(--neon-text-color),
+                0 0 8rem var(--neon-text-color),
+                0 0 10rem var(--neon-text-color);
+        }
+        20%, 24%, 55% {        
+            text-shadow: none;
+            box-shadow: none;
+        }    
+    }
+
+    #main{
+        width:100%;
+        height:100%;
+        position:absolute;
+        overflow:hidden;
+    }
+    #box{
+        width: 420px;
+        height: 321px;
+        background-image: url(./1.png);
+        background-size:cover;
+        position: absolute;
+        bottom: -100%;
+        left:35%;
+        animation:anim 2s forwards,anim2 3s forwards 3s;
+    }
+    #box::after{
+        content: '';
+        position: absolute;
+        width: 420px;
+        height: 321px;
+        background-image: url(./2.png);
+        background-size:cover;
+        left: 0px;
+        z-index: -1;
+    }
+    @keyframes anim {
+        from{
+            bottom:-100%;
+        }
+        to{
+            bottom:25%;
+        }
+    }
+    @keyframes anim2 {
+        from{
+            left:35%;
+            width: 420px;
+        }
+        to{
+            width: 0px;
+            left: 60%;
+        }
+    }
+  
